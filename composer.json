@@ -1,0 +1,7 @@
+{
+    "require": {
+        "fabpot/goutte": "^4.0",
+        "symfony/http-client": "^6.0",
+        "firebase/php-jwt": "^6.11"
+    }
+}
