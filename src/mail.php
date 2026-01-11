@@ -30,13 +30,16 @@ function send_verification_email(string $email, string $token): bool
             $config['mail_from_name']
         );
 
+        //设定为html格式
+        $mail->isHTML(true);
+
         // 收件人
         $mail->addAddress($email);
 
         // 内容
         $link = $config['base_url'] . '/verify.php?token=' . urlencode($token);
         $mail->Subject = 'Verify your SyPhotos account';
-        $mail->Body    = "请点击下面链接完成注册：\n\n{$link}";
+        $mail->Body    = "请点击下面链接完成注册：\n\n <a href=\"{$link}\">{$link}</a>";
 
         return $mail->send();
     } catch (Exception $e) {

@@ -1,6 +1,9 @@
 <?php
-require __DIR__ . '/config.php';
-
+require __DIR__ . '/config/config.php';
+require __DIR__ . '/db_connect.php';
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 $token = trim($_GET['token'] ?? '');
 $message = '无效的验证链接。';
 
@@ -25,7 +28,7 @@ if ($token !== '') {
                     'verified_at' => $now->format('Y-m-d H:i:s'),
                     'id' => $user['id'],
                 ]);
-                $message = '邮箱验证成功，请返回登录。';
+                $message = '邮箱验证成功！';
             }
         }
     }
@@ -40,5 +43,6 @@ if ($token !== '') {
 <body>
 <h1>邮箱验证</h1>
 <p><?php echo htmlspecialchars($message, ENT_QUOTES, 'UTF-8'); ?></p>
+<a href="/login.php">点击这里登录</a>
 </body>
 </html>

@@ -327,9 +327,12 @@ if(isset($_GET['success'])) $success = $_GET['success'];
                 <a href="upload.php" class="text-gray-600 hover:text-primary transition-colors text-sm">
                     <i class="fa fa-upload mr-1"></i> 上传图片
                 </a>
+                    <!-- 判断是不是sys_admin -->
+                <?php if (isset($_SESSION['sys_admin']) && $_SESSION['sys_admin']): ?>
                 <a href="admin_dashboard.php" class="text-gray-600 hover:text-primary transition-colors text-sm">
                     <i class="fa fa-tachometer mr-1"></i> 仪表盘
                 </a>
+                <?php endif; ?>
                 <a href="admin_review.php" class="text-primary font-medium transition-colors text-sm">
                     <i class="fa fa-check-circle mr-1"></i> 内容审核
                 </a>

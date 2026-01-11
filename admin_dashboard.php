@@ -3,7 +3,7 @@ require 'db_connect.php';
 session_start();
 
 // 检查是否登录且是管理员
-if(!isset($_SESSION['user_id']) || !$_SESSION['is_admin']) {
+if(!isset($_SESSION['user_id']) || !$_SESSION['sys_admin']) {
     header('Location: login.php');
     exit;
 }
